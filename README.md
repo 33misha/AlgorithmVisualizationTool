@@ -1,2 +1,22 @@
-# AlgorithmVisualizationTool
-The algorithm visualization tool aims to help people visualize different concepts in programming. Out of the sort algorithms AVT visualizes Quick Sort, Bubble Sort, Selection Sort, and Merge Sort showing comparisons and swaps along the way. AVT will also visualize data structures like linked lists, the stack, and the queue. 
+# Algorithm Visualization Tool
+
+A Java Swing application for learning how sorting algorithms and data structures work through step-by-step visualizations.
+
+## Current progress
+
+- Welcome screen and visualization selection menu
+- Navigation to a placeholder screen for each planned topic
+- Planned order follows the Lafore textbook: Bubble Sort, Selection Sort, Stack, Queue, Linked List, Merge Sort, and Quick Sort
+
+## Run
+
+Requires a JDK.
+
+From the repository root:
+
+```sh
+javac -d out src/avt/Main.java
+java -cp out avt.Main
+```
+
+The GUI and step-by-step demonstrations will be added incrementally.

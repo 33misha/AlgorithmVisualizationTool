@@ -10,13 +10,11 @@ A Java Swing application for learning how sorting algorithms and data structures
 
 ## Run
 
-Requires a JDK.
-
-From the repository root:
+Requires a JDK. From the repository root, run:
 
 ```sh
-javac -d out src/avt/Main.java
-java -cp out avt.Main
+javac src/avt/Main.java
+java -cp src avt.Main
 ```
 
 The GUI and step-by-step demonstrations will be added incrementally.

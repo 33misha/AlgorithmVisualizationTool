@@ -18,7 +18,7 @@ public class BubbleSort {
         display();
     }
     public void display() {
-        System.out.println(" - - - - - - - - - - - - ");
+        breakLine();
         for(int i = 0 ; i<currentLength; i++){
             System.out.print(" [" + sortedArray[i] + "] ");
         }
@@ -27,7 +27,7 @@ public class BubbleSort {
             System.out.print(" [" + i + "] ");
         }
         System.out.println();
-        System.out.println(" - - - - - - - - - - - - ");
+        breakLine();
     }
     private void swap(int a, int b){
         long temp = sortedArray[a];
@@ -51,5 +51,8 @@ public class BubbleSort {
             }
         }
 
+    }
+    public void breakLine(){
+        System.out.println(" - - - - - - - - - - - - ");
     }
 }

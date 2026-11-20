@@ -5,6 +5,7 @@ A Java Swing application for learning how sorting algorithms and data structures
 ## Current progress
 
 - Welcome screen and visualization selection menu
+- Console Playground page with text output and input support; prompts are written in `ConsolePlayground.java`
 - Navigation to a placeholder screen for each planned topic
 - Planned order follows the Lafore textbook: Bubble Sort, Selection Sort, Stack, Queue, Linked List, Merge Sort, and Quick Sort
 
@@ -13,8 +14,8 @@ A Java Swing application for learning how sorting algorithms and data structures
 Requires a JDK. From the repository root, run:
 
 ```sh
-javac src/avt/Main.java
-java -cp src avt.Main
+javac -d out src/avt/*.java
+java -cp out avt.Main
 ```
 
 The GUI and step-by-step demonstrations will be added incrementally.

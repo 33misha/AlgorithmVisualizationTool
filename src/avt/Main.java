@@ -2,6 +2,8 @@ package avt;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Main {
     private static final Color BACKGROUND = new Color(18, 24, 38);
@@ -13,6 +15,8 @@ public class Main {
     private final JFrame window = new JFrame("Algorithm Visualization Tool");
     private final CardLayout cardLayout = new CardLayout();
     private final JPanel screens = new JPanel(cardLayout);
+    private final ConsolePanel consolePlayground = new ConsolePanel(
+            () -> cardLayout.show(screens, "welcome"));
     private final JLabel previewTitle = new JLabel("", SwingConstants.CENTER);
     private final JLabel previewDescription = new JLabel("", SwingConstants.CENTER);
 
@@ -24,8 +28,15 @@ public class Main {
         screens.add(buildWelcomeScreen(), "welcome");
         screens.add(buildMenuScreen(), "menu");
         screens.add(buildPreviewScreen(), "preview");
+        screens.add(consolePlayground, "console");
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent event) {
+                consolePlayground.stopSession();
+            }
+        });
         window.setMinimumSize(new Dimension(760, 560));
         window.setSize(1000, 700);
         window.setLocationRelativeTo(null);
@@ -56,6 +67,13 @@ public class Main {
         start.setAlignmentX(Component.CENTER_ALIGNMENT);
         start.addActionListener(event -> cardLayout.show(screens, "menu"));
 
+        JButton console = button("Console Playground");
+        console.setAlignmentX(Component.CENTER_ALIGNMENT);
+        console.addActionListener(event -> {
+            cardLayout.show(screens, "console");
+            consolePlayground.startIfNeeded();
+        });
+
         content.add(eyebrow);
         content.add(Box.createVerticalStrut(18));
         content.add(title);
@@ -63,6 +81,8 @@ public class Main {
         content.add(subtitle);
         content.add(Box.createVerticalStrut(32));
         content.add(start);
+        content.add(Box.createVerticalStrut(14));
+        content.add(console);
         page.add(content);
         return page;
     }
